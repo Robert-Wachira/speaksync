@@ -34,7 +34,7 @@ export default function Home() {
       prediction.status !== "succeeded" &&
       prediction.status !== "failed"
     ) {
-      await sleep(1000);
+      // await sleep(1000);
       const response = await fetch("/api/predictions/" + prediction.id);
       prediction = await response.json();
       if (response.status !== 200) {
@@ -42,6 +42,7 @@ export default function Home() {
         return;
       }
       console.log({ prediction });
+      console.log("prediction.output:", prediction.output);
       setPrediction(prediction);
     }
   };
@@ -62,7 +63,7 @@ export default function Home() {
         <button type="submit">Go!</button>
       </form>
       {error && <div>{error}</div>}
-      {prediction && (
+      {/* {prediction && (
         <div>
           {prediction["output"] && (
             <div className={styles.imageWrapper}>
@@ -76,10 +77,27 @@ export default function Home() {
           )}
           <p>status: {prediction["status"]}</p>
         </div>
+      )} */}
+      {prediction && (
+        <div>
+          <p>Testing</p>
+          {prediction.output && (
+            <div className={styles.imageWrapper}>
+              <Image
+                fill
+                src={prediction.output[prediction.output.length - 1]}
+                alt="output"
+                sizes="100vw"
+              />
+              <p>Testing2</p>
+            </div>
+          )}
+          <p>status: {prediction.status}</p>
+        </div>
       )}
       {/* {prediction && (
         <div>
-          {prediction.output && (
+          {prediction.status === "succeeded" && prediction.output && (
             <div className={styles.imageWrapper}>
               <Image
                 fill
