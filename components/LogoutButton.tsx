@@ -2,17 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Hanko } from "@teamhanko/hanko-elements";
+// @ts-ignore
+import type { Hanko } from "@teamhanko/hanko-elements";
 
-const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
+const hankoAPI = process.env.NEXT_PUBLIC_HANKO_API_URL;
 
 export function LogoutBtn() {
   const router = useRouter();
   const [hanko, setHanko] = useState<Hanko>();
 
   useEffect(() => {
+    // @ts-ignore
     import("@teamhanko/hanko-elements").then(({ Hanko }) =>
-      setHanko(new Hanko(hankoApi ?? ""))
+      setHanko(new Hanko(hankoAPI ?? ""))
     );
   }, []);
 

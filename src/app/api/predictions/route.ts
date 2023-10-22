@@ -14,41 +14,41 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
       // input: { prompt: req.body.prompt },
       input: {
-        prompt: req.body.prompt,
+        // prompt: req.body.prompt,
         motion_module: "mm_sd_v14",
         // imageUrl: req.body.imageUrl,
       },
     }),
   });
 
-  let jsonStartResponse = await response.json();
-  let endpointOutput = jsonStartResponse.output.get;
+  // let jsonStartResponse = await response.json();
+  // let endpointOutput = jsonStartResponse.id.get;
 
-  let generatedImage: String | null = null;
-  while (!generatedImage) {
-    // Loop in 1s intervals until the alt text is ready
-    console.log("Polling for result...");
-    let finalResponse = await fetch(endpointOutput, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        // Authorization: "Token " + process.env.REPLICATE_API_KEY,
-        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
-      },
-    });
-    let jsonFinalResponse = await finalResponse.json();
+  // let generatedImage: String | null = null;
+  // while (!generatedImage) {
+  //   // Loop in 1s intervals until the alt text is ready
+  //   console.log("Polling for result...");
+  //   let finalResponse = await fetch(endpointOutput, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       // Authorization: "Token " + process.env.REPLICATE_API_KEY,
+  //       Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+  //     },
+  //   });
+  //   let jsonFinalResponse = await finalResponse.json();
 
-    if (jsonFinalResponse.status === "succeeded") {
-      generatedImage = jsonFinalResponse.output;
-    } else if (jsonFinalResponse.status === "failed") {
-      break;
-    } else {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    }
-  }
-  res
-    .status(200)
-    .json(generatedImage ? generatedImage : "Failed to generate image");
+  //   if (jsonFinalResponse.status === "succeeded") {
+  //     generatedImage = jsonFinalResponse.output;
+  //   } else if (jsonFinalResponse.status === "failed") {
+  //     break;
+  //   } else {
+  //     await new Promise((resolve) => setTimeout(resolve, 1000));
+  //   }
+  // }
+  // res
+  //   .status(200)
+  //   .json(generatedImage ? generatedImage : "Failed to generate image");
 
   if (response.status !== 201) {
     let error = await response.json();

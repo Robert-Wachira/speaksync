@@ -24,7 +24,7 @@ model Account {
   id_token           String?  @db.Text
   session_state      String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user               User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -48,26 +48,26 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  requests      Request[]
-
+  images        Genimage[]
+  credits       Int       @default(5)
 }
 
-model Request {
-  id  String @id @default(cuid())
-  // prompt  String?
-  version String?
-  inputs  Input[]
-  User  User? @relation(fields: [userId], references: [id])
-  userId  String?
+model Genimage {
+  id         String @id @default(cuid())
+  prompt  String?
+  version   String?
+  // inputs    Input[]
+  User      User? @relation(fields: [userId], references: [id])
+  userId    String?
   createdAt DateTime @default(now())
 }
 
-model Input {
-  id  String @id @default(cuid())
-  motion_module String
-  request Request? @relation(fields: [requestId], references: [id])
-  requestId String?
-}
+// model Input {
+//   id            String @id @default(cuid())
+//   motion_module String
+//   image         Genimage? @relation(fields: [requestId], references: [id])
+//   requestId     String?
+// }
 
 model VerificationToken {
   identifier String
