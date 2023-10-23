@@ -1,6 +1,6 @@
 "use server";
 
-import { readSession } from "@/utils/sessions";
+import { readSession } from "@/utils/sessionHandler";
 import Stripe from "stripe";
 
 export async function checkoutAction(credits: number, context) {
@@ -20,8 +20,8 @@ export async function checkoutAction(credits: number, context) {
   if (!priceId) {
     throw new Error("Invalid price id");
   }
-  //@ts-ignore
   return Stripe.Checkout.Sessions.create({
+    // const sess = await Stripe.Checkout.Sessions.create({
     mode: "payement",
     payment_method_types: ["card"],
     metadata: {

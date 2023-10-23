@@ -1,19 +1,20 @@
 import React from "react";
-// import { useBuyCredits } from "@/hooks/useBuyCredits";
+import { useBuyCredits } from "@/hooks/useBuyCredits";
+import { useCustomSession } from "../session-middleware";
 import Link from "next/link";
 import { LogoutBtn } from "./LogoutButton";
 import LoginPage from "@/app/login/page";
 import styles from "../src/app/page.module.css";
 
 export default function Header() {
-  // const session = useSession();
-  // const buyCredits = useBuyCredits();
+  const { session, login, logout } = useCustomSession();
+  const buyCredits = useBuyCredits();
 
-  // const isLoggedIn = !!session.data;
+  const isLoggedIn = !!session.data;
 
-  // const credits = api.user.getCredits.useQuery(undefined, {
-  //   enabled: isLoggedIn,
-  // });
+  const credits = api.user.getCredits.useQuery(undefined, {
+    enabled: isLoggedIn,
+  });
   return (
     <>
       <header className={styles.nav}>
@@ -28,13 +29,9 @@ export default function Header() {
             <Link href="/dashboard" className={styles.navlink}>
               Dashboard
             </Link>
-            {/* {isLoggedIn && (
-              <li>
-                <Link href="/collection">Collection</Link>
-              </li>
-            )} */}
+            {isLoggedIn && <Link href="/collection">Collection</Link>}
           </nav>
-          {/* <ul>
+          <ul>
             {isLoggedIn && (
               <>
                 <div>Credits remaining {credits.data}</div>
@@ -61,7 +58,7 @@ export default function Header() {
                 ></button>
               </li>
             )}
-          </ul> */}
+          </ul>
         </div>
       </header>
     </>

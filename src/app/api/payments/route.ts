@@ -1,9 +1,12 @@
 import Stripe from "stripe";
 import { prisma } from "@/server/db";
+// import buffer from 'micro'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2023-10-16",
 });
+
+const webhookSecret = process.env.STRIPE_WEBHOOK_ENDPOINT_SECRET;
 
 type Metadata = {
   userId: string;
@@ -12,15 +15,18 @@ type Metadata = {
 
 export async function POST(req: Request, res: Response) {
   const body = await req.text();
+  // const buf = await buffer(req)
   const signature = req.headers["stripe-signature"] as string;
   let event: Stripe.Event;
 
   try {
     event = stripe.webhooks.constructEvent(
+      // buf,
       body,
       signature,
-      process.env.STRIPE_WEB_HOOK_SECRET
+      webhookSecret
     );
+    console.log("Event", event);
   } catch (err) {
     return new Response(
       `Webhook Error: ${err instanceof Error ? err.message : "Unknown Error"}`,
@@ -42,9 +48,9 @@ export async function POST(req: Request, res: Response) {
           id: userId,
         },
         data: {
-          //@ts-ignore
           credits: {
             increment: parseInt(credits),
+            // increment: credits,
           },
         },
       });

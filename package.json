@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stripe": "stripe listen --forward to localhost:3000/payments"
   },
   "dependencies": {
     "@prisma/client": "^5.4.2",

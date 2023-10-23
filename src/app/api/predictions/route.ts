@@ -1,6 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
-
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request, res: Response) {
   const response = await fetch("https://api.replicate.com/v1/predictions", {
     method: "POST",
     headers: {

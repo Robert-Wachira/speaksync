@@ -17,10 +17,7 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <h1>DISCOVER THE FUTURE OF AI WITH US</h1>
-        <p>
-          With the power of AI, we bring to you a way to generate Images. You
-          can generate your own images in which you can edit into a video
-        </p>
+        <p>With the power of AI, we bring to you a way to generate Images.</p>
         <div>
           <button>
             <Link href="/generate">Get Started right now</Link>

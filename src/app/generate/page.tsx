@@ -5,6 +5,8 @@ import styles from "../page.module.css";
 import Head from "next/head";
 import { useState } from "react";
 import Image from "next/image";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 
 const sleep = (ms: any) => new Promise((r) => setTimeout(r, ms));
 
@@ -50,6 +52,7 @@ export default function Generate() {
       <Head>
         <title>Generate Images</title>
       </Head>
+      <Header />
       <main>
         <h1>Generate Images</h1>
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -79,6 +82,7 @@ export default function Generate() {
           </div>
         )}
       </main>
+      <Footer />
     </>
   );
 }

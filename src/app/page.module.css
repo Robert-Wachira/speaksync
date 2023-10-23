@@ -9,6 +9,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   margin-top: 5rem;
+  gap: 1rem;
   /* padding: 6rem; */
   /* min-height: 100vh; */
 }
@@ -122,7 +123,6 @@
   width: 100%;
   z-index: 2;
   /* font-family: var(--font-mono); */
-  font-family: Sharp Sans, sans-serif;
 }
 
 .description a {
@@ -144,7 +144,6 @@
 .code {
   font-weight: 700;
   /* font-family: var(--font-mono); */
-  font-family: Sharp Sans, sans-serif;
 }
 
 .grid {

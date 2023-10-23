@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import {} from "next/font/google";
 import localFont from "next/font/local";
 const myFont = localFont({ src: "../utils/TypeUnion - Palo Wide Light.otf" });
 
