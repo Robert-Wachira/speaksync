@@ -7,14 +7,11 @@ export async function POST(req: Request, res: Response) {
     },
     body: JSON.stringify({
       version:
-        // "2b017d9b67edd2ee1401238df49d75da53c523f36e363881e057f5dc3ed3c5b2",
         "beecf59c4aee8d81bf04f0381033dfa10dc16e845b4ae00d281e2fa377e48a9f",
 
-      // input: { prompt: req.body.prompt },
       input: {
         // prompt: req.body.prompt,
         motion_module: "mm_sd_v14",
-        // imageUrl: req.body.imageUrl,
       },
     }),
   });

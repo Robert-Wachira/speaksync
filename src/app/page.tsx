@@ -17,11 +17,16 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <h1>DISCOVER THE FUTURE OF AI WITH US</h1>
-        <p>With the power of AI, we bring to you a way to generate Images.</p>
-        <div>
-          <button>
+        <p className={styles.p}>
+          With the power of AI, we bring to you a way to generate Images.
+        </p>
+        <div className={styles.plink}>
+          <Link href="/generate" className={styles.plink}>
+            Get Started Right Now
+          </Link>
+          {/* <button>
             <Link href="/generate">Get Started right now</Link>
-          </button>
+          </button> */}
         </div>
       </main>
       <Footer />

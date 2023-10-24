@@ -1,7 +1,13 @@
+import PricingCard from "./pricing-card";
+
 export default function Pricing() {
   return (
     <>
-      <main></main>
+      <main>
+        <div>
+          <PricingCard />
+        </div>
+      </main>
     </>
   );
 }

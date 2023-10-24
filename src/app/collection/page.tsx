@@ -3,9 +3,13 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../page.module.css";
+//@ts-ignore
+import { Hanko } from "@teamhanko/hanko-elements";
 
 const CollectionPage: NextPage = () => {
-  const images = images.getImages.useQuery();
+  // const icons = api.icons.getIcons.useQuery();
+  const session = Hanko.session;
+  const images = session.images.getImages.useQuery();
   return (
     <>
       <Head>
