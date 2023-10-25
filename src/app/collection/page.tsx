@@ -11,7 +11,7 @@ import Footer from "../../../components/Footer";
 const CollectionPage: NextPage = () => {
   // const icons = api.icons.getIcons.useQuery();
   const session = Hanko.session;
-  const images = session.images.getImages.useQuery();
+  const images = session?.user.images.getImages.useQuery();
   return (
     <>
       <div className={styles.divmain}>
