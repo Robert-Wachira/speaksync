@@ -9,7 +9,7 @@ const cost = ["9", "19", "29"];
 const credits = 20;
 
 // const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
-const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default function PricingCard() {
   return (
@@ -34,11 +34,6 @@ export default function PricingCard() {
                         });
                       })
                       .catch(() => {
-                        // toast({
-                        //   variant: "destructive",
-                        //   title: "Something went wrong",
-                        //   description: "You must be logged in to buy credits",
-                        // });
                         toast.error(
                           "Something went wrong. You must be logged in to buy credits",
                           {
