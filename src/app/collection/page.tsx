@@ -31,7 +31,7 @@ const CollectionPage: NextPage = () => {
                   width="100"
                   height="100"
                   alt={image.prompt ?? "an image of an icon"}
-                  src={`https://localhost:3000/${image.id}`}
+                  src={`https://imggen.vercel.app/collection/${image.id}`}
                 />
               </li>
             ))}
