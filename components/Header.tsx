@@ -63,11 +63,11 @@ export default function Header() {
                 Generate
               </Link>
             )}
-            {isLoggedIn && (
+            {/* {isLoggedIn && (
               <Link href="/collection" className={styles.navlink}>
                 Collection
               </Link>
-            )}
+            )} */}
             <Link href="/pricing" className={styles.navlink}>
               Pricing
             </Link>

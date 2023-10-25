@@ -62,13 +62,6 @@ model Genimage {
   createdAt DateTime @default(now())
 }
 
-// model Input {
-//   id            String @id @default(cuid())
-//   motion_module String
-//   image         Genimage? @relation(fields: [requestId], references: [id])
-//   requestId     String?
-// }
-
 model VerificationToken {
   identifier String
   token      String   @unique
