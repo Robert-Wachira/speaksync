@@ -10,7 +10,7 @@
     "stripe-listen": "stripe listen --forward to localhost:3000/payments"
   },
   "dependencies": {
-    "@prisma/client": "^5.4.2",
+    "@prisma/client": "^5.5.2",
     "@stripe/stripe-js": "^2.1.9",
     "@teamhanko/hanko-elements": "^0.8.3",
     "@teamhanko/hanko-frontend-sdk": "^0.8.3",
@@ -31,7 +31,7 @@
     "@types/node": "^20.8.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "prisma": "^5.4.2",
+    "prisma": "^5.5.2",
     "typescript": "^5"
   }
 }
