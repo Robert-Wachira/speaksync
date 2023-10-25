@@ -8,7 +8,8 @@ import styles from "../page.module.css";
 const cost = ["9", "19", "29"];
 const credits = 20;
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+// const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY);
 
 export default function PricingCard() {
   return (
