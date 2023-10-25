@@ -21,9 +21,12 @@ export default function Home() {
           With the power of AI, we bring to you a way to generate Images.
         </p>
         <div className={styles.plink}>
-          <Link href="/generate" className={styles.plink}>
-            Get Started Right Now
+          <Link href="/login" className={styles.plink}>
+            Log In To Get Started
           </Link>
+          {/* <Link href="/generate" className={styles.plink}>
+            Get Started Right Now
+          </Link> */}
           {/* <button>
             <Link href="/generate">Get Started right now</Link>
           </button> */}

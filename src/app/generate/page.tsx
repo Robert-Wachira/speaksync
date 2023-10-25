@@ -49,40 +49,42 @@ export default function Generate() {
   };
   return (
     <>
-      <Head>
-        <title>Generate Images</title>
-      </Head>
-      <Header />
-      <main>
-        <h1>Generate Images</h1>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="prompt"
-            placeholder="Enter a prompt to display an image"
-          />
-          <button type="submit">Submit</button>
-        </form>
-        {error && <div>{error}</div>}
-        {prediction && (
-          <div>
-            {/* <p>Testing</p> */}
-            {prediction.output && (
-              <div className={styles.imageWrapper}>
-                <Image
-                  fill
-                  src={prediction.output[prediction.output.length - 1]}
-                  alt="output"
-                  sizes="100vw"
-                />
-                {/* <p>Testing2</p> */}
-              </div>
-            )}
-            <p>status: {prediction.status}</p>
-          </div>
-        )}
-      </main>
-      <Footer />
+      <div className={styles.divmain}>
+        <Head>
+          <title>Generate Images</title>
+        </Head>
+        <Header />
+        <main className={styles.main}>
+          <h1>Generate Images</h1>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="prompt"
+              placeholder="Enter a prompt to display an image"
+            />
+            <button type="submit">Submit</button>
+          </form>
+          {error && <div>{error}</div>}
+          {prediction && (
+            <div>
+              {/* <p>Testing</p> */}
+              {prediction.output && (
+                <div className={styles.imageWrapper}>
+                  <Image
+                    fill
+                    src={prediction.output[prediction.output.length - 1]}
+                    alt="output"
+                    sizes="100vw"
+                  />
+                  {/* <p>Testing2</p> */}
+                </div>
+              )}
+              <p>status: {prediction.status}</p>
+            </div>
+          )}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useBuyCredits } from "@/hooks/useBuyCredits";
 import Link from "next/link";
@@ -5,30 +7,30 @@ import { LogoutBtn } from "./LogoutButton";
 import LoginPage from "@/app/login/page";
 import styles from "../src/app/page.module.css";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 // @ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
 export default function Header() {
-  // const sess = Hanko.session;
-  // const session = hanko.session.get();
+  const session = Hanko.session;
+  // const { data: session } = Hanko.session;
 
-  // if (session) {
-  //   console.info(`userID: ${session.userID}, jwt: ${session.jwt}`);
+  // const isLoggedIn = !!session.data;
+  const isLoggedIn = !!session;
+
+  // if (!session?.user) {
+  //   throw new Error("You must be logged in");
   // }
 
   const buyCredits = useBuyCredits();
 
-  // const isLoggedIn = !sess;
-  // const session = Hanko.state.session.SessionState;
-  // const session = Hanko.state;
+  const credits = session?.user.getCredits.useQuery(undefined, {
+    enabled: isLoggedIn,
+  });
 
-  // const isLoggedIn = !!session.getState();
-
-  // const credits = Hanko.session
-  //   .get(Hanko.session.userID)
-  //   .getCredits.useQuery(undefined, {
-  //     enabled: isLoggedIn,
-  //   });
+  // const credits = api.user.getCredits.useQuery(undefined, {
+  //   enabled: isLoggedIn,
+  // });
 
   const handleBuyCredits = async () => {
     try {
@@ -49,33 +51,56 @@ export default function Header() {
               height={30}
               className={styles.logoimg}
             />
-            {/* <p className={styles.logop}>Imggen</p> */}
           </Link>
           <nav className={styles.navmenu}>
-            <Link href="/generate" className={styles.navlink}>
-              Generate
+            {isLoggedIn && (
+              <Link href="/dashboard" className={styles.navlink}>
+                Dashboard
+              </Link>
+            )}
+            {isLoggedIn && (
+              <Link href="/generate" className={styles.navlink}>
+                Generate
+              </Link>
+            )}
+            {isLoggedIn && (
+              <Link href="/collection" className={styles.navlink}>
+                Collection
+              </Link>
+            )}
+            <Link href="/pricing" className={styles.navlink}>
+              Pricing
             </Link>
-            <Link href="/dashboard" className={styles.navlink}>
-              Dashboard
-            </Link>
-            {/* Testing */}
-            <Link href="/collection">Collection</Link>
+            {/* <Link href="/collection">Collection</Link> */}
             <div className={styles.navsubmenu}>
-              <div>Credits remaining</div>
-              {/* <button
+              {isLoggedIn && (
+                <>
+                  <div>Credits remaining {credits.data}</div>
+                  <li>
+                    {/* <button
                     onClick={() => {
                       buyCredits().catch(console.error);
                     }}
                   > */}
-              {/* <button
-                onClick={handleBuyCredits}
-                className={styles.navsubmenubuttons}
-              >
-                Buy Credits
-              </button> */}
-              {/* <Link href="/pricing">Buy Credits</Link> */}
-              <LogoutBtn />
-              <Link href="/login">Login</Link>
+                    <button
+                      onClick={handleBuyCredits}
+                      className={styles.navsubmenubuttons}
+                    >
+                      Buy Credits
+                    </button>
+                  </li>
+                  <LogoutBtn />
+                </>
+              )}
+              {!isLoggedIn && (
+                <button
+                  onClick={() => {
+                    LoginPage;
+                  }}
+                >
+                  Login
+                </button>
+              )}
               {/* <button
                 className={styles.navsubmenubuttons}
                 onClick={() => {
@@ -84,6 +109,13 @@ export default function Header() {
               >
                 Login
               </button> */}
+              {/* <button
+                    onClick={() => {
+                      buyCredits().catch(console.error);
+                    }}
+                  > */}
+              {/* <LogoutBtn />
+              <Link href="/login">Login</Link> */}
             </div>
           </nav>
         </div>

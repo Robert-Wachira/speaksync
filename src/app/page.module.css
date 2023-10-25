@@ -51,7 +51,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .nav {
   display: flex;
   flex-direction: row;
@@ -189,7 +188,7 @@
   margin-bottom: 2rem;
 }
 .plink {
-  font-size: 0.825rem;
+  font-size: 1rem;
   padding: 0;
   margin: 0;
 }
@@ -234,7 +233,9 @@
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
+  /* background: rgba(var(--card-rgb), 0); */
+  background: darkmagenta;
+  background-color: blueviolet;
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
 }
@@ -295,7 +296,8 @@
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
+    /* background: rgba(var(--card-rgb), 0.1); */
+    background: darkmagenta;
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
   }
 
@@ -417,6 +419,12 @@
   .navsubmenu {
     margin-left: -2rem;
   }
+  .form {
+    width: 10rem;
+  }
+  /* .form input {
+    width: 5rem;
+  } */
   .footer {
     height: 5rem;
     padding-top: 0.5rem;
@@ -469,6 +477,8 @@
 .form {
   display: flex;
   margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 50rem;
 }
 
 .form input {
@@ -483,6 +493,7 @@
 .form button {
   padding: 1rem;
   border: none;
+  background-color: #000;
   border-radius: 0.25rem;
   box-sizing: border-box;
   cursor: pointer;

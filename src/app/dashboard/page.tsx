@@ -1,9 +1,16 @@
+import Footer from "../../../components/Footer";
 import HankoProfile from "../../../components/HankProfile";
+import Header from "../../../components/Header";
+import styles from "../page.module.css";
 
 const DashboardPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <HankoProfile />
+    <div className={styles.divmain}>
+      <Header />
+      <main className={styles.main}>
+        <HankoProfile />
+      </main>
+      <Footer />
     </div>
   );
 };
