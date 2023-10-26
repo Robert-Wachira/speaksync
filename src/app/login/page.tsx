@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "../../../components/Footer";
 import HankoAuth from "../../../components/HankoAuth";
 import Header from "../../../components/Header";

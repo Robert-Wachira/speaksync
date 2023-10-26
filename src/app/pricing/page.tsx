@@ -1,3 +1,5 @@
+"use client";
+
 import PricingCard from "./pricing-card";
 import styles from "../page.module.css";
 import Header from "../../../components/Header";
