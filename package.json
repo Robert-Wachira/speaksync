@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "prisma generate && next dev",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "stripe-listen": "stripe listen --forward to localhost:3000/payments"
@@ -17,6 +17,7 @@
     "@teamhanko/hanko-webauthn": "^2.0.0",
     "dotenv": "^16.3.1",
     "jose": "^4.15.2",
+    "micro": "^10.0.1",
     "next": "13.5.4",
     "node-fetch": "^3.3.2",
     "react": "^18",

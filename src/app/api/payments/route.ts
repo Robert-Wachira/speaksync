@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import { prisma } from "@/server/db";
-// import buffer from 'micro'
+// import buffer from "micro";
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY, {
   apiVersion: "2023-10-16",
@@ -15,7 +15,7 @@ type Metadata = {
 
 export async function POST(req: Request, res: Response) {
   const body = await req.text();
-  // const buf = await buffer(req)
+  // const buf = await buffer(req);
   const signature = req.headers["stripe-signature"] as string;
   let event: Stripe.Event;
 
