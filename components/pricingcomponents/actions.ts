@@ -36,7 +36,7 @@ export async function checkoutAction(credits: number) {
         quantity: 1,
       },
     ],
-    success_url: `${process.env.HOST_NAME}/`,
-    cancel_url: `${process.env.HOST_NAME}/pricing`,
+    success_url: `${process.env.PROD_HOST_NAME}/`,
+    cancel_url: `${process.env.PROD_HOST_NAME}/pricing`,
   });
 }

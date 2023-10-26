@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "credits": 50,
+    "description": "50 Credits",
+    "image": "",
+    "quantity": 1,
+    "price": 9
+  },
+
+  {
+    "id": 2,
+    "credits": 100,
+    "description": "100 Credits",
+    "image": "",
+    "quantity": 1,
+    "price": 19
+  },
+  {
+    "id": 3,
+    "credits": 250,
+    "description": "250 Credits",
+    "quantity": 1,
+    "image": "",
+    "price": 29
+  }
+]

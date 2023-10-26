@@ -230,6 +230,12 @@
   width: var(--max-width);
 }
 
+.cardlayout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
@@ -238,8 +244,8 @@
   margin-top: 5rem;
   width: 15rem;
   height: 100%;
-  background: darkmagenta;
-  background-color: blueviolet;
+  background: teal;
+  background-color: seagreen;
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
 }
@@ -301,7 +307,7 @@
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     /* background: rgba(var(--card-rgb), 0.1); */
-    background: darkmagenta;
+    background: teal;
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
   }
 
