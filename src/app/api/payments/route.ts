@@ -1,3 +1,5 @@
+"use server";
+
 import Stripe from "stripe";
 import { prisma } from "@/server/db";
 // import buffer from "micro";
@@ -64,7 +66,6 @@ export async function POST(req: Request, res: Response) {
 
   return new Response(null, { status: 200 });
 }
-("use server");
 
 // import Stripe from "stripe";
 // //@ts-ignore
