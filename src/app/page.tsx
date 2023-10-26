@@ -13,6 +13,7 @@ export default function Home() {
     <div className={styles.divmain}>
       <Head>
         <title>Image Generator</title>
+        <Image src="/imggen.png" alt="logo" />
       </Head>
       <Header />
       <main className={styles.main}>

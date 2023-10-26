@@ -1,6 +1,6 @@
 "use client";
 
-import { checkoutAction } from "./actions";
+import { checkoutAction } from "../../../components/pricingcomponents/actions";
 import { loadStripe } from "@stripe/stripe-js";
 import { toast } from "react-toastify";
 import styles from "../page.module.css";

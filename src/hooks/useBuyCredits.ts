@@ -17,9 +17,9 @@ export function useBuyCredits() {
         headers: {
           "Content-Type": "application-json",
         },
-        // body: JSON.stringify({
-        //   priceID: priceId
-        // })
+        body: JSON.stringify({
+          // priceID: priceId
+        }),
       });
       const session = await response.json();
       const result = await stripe?.redirectToCheckout({
