@@ -7,20 +7,12 @@ import { LogoutBtn } from "./LogoutButton";
 import LoginPage from "@/app/login/page";
 import styles from "../src/app/page.module.css";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 // @ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
 export default function Header() {
   const session = Hanko.session;
-  // const { data: session } = Hanko.session;
-
-  // const isLoggedIn = !!session.data;
   const isLoggedIn = !!session;
-
-  // if (!session?.user) {
-  //   throw new Error("You must be logged in");
-  // }
 
   const buyCredits = useBuyCredits();
 
@@ -28,22 +20,18 @@ export default function Header() {
     enabled: isLoggedIn,
   });
 
-  // const credits = api.user.getCredits.useQuery(undefined, {
-  //   enabled: isLoggedIn,
-  // });
-
-  const handleBuyCredits = async () => {
-    try {
-      await buyCredits.buyCredits();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleBuyCredits = async () => {
+  //   try {
+  //     await buyCredits.buyCredits();
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   return (
     <>
       <header className={styles.nav}>
         <div>
-          <Link href="/" className={styles.navhome}>
+          <a href="/" className={styles.navhome}>
             <Image
               alt="logo"
               src="/Imggen.png"
@@ -51,27 +39,32 @@ export default function Header() {
               height={30}
               className={styles.logoimg}
             />
-          </Link>
+          </a>
           <nav className={styles.navmenu}>
             {isLoggedIn && (
-              <Link href="/dashboard" className={styles.navlink}>
-                <a>Dashboard</a>
-              </Link>
+              <a href="/dashboard" className={styles.navlink}>
+                Dashboard
+              </a>
             )}
+            <a href="/dashboard" className={styles.navlink}>
+              Dashboard
+            </a>
             {isLoggedIn && (
-              <Link href="/generate" className={styles.navlink}>
-                <a>Generate</a>
-              </Link>
+              <a href="/generate" className={styles.navlink}>
+                Generate
+              </a>
             )}
+            <a href="/generate" className={styles.navlink}>
+              Generate
+            </a>
             {/* {isLoggedIn && (
               <Link href="/collection" className={styles.navlink}>
                 Collection
               </Link>
             )} */}
-            <Link href="/pricing" className={styles.navlink}>
-              <a>Pricing</a>
-            </Link>
-            {/* <Link href="/collection">Collection</Link> */}
+            <a href="/pricing" className={styles.navlink}>
+              Pricing
+            </a>
             <div className={styles.navsubmenu}>
               {isLoggedIn && (
                 <>
@@ -82,8 +75,12 @@ export default function Header() {
                       buyCredits().catch(console.error);
                     }}
                   > */}
-                    <button
+                    {/* <button
                       onClick={handleBuyCredits}
+                      className={styles.navsubmenubuttons}
+                    > */}
+                    <button
+                      onClick={() => useBuyCredits}
                       className={styles.navsubmenubuttons}
                     >
                       Buy Credits
