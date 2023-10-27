@@ -44,6 +44,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
   padding-top: 2rem;
   padding-bottom: 5rem;
   min-height: 100vh;
@@ -69,6 +70,7 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  /* margin-bottom: 2rem; */
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   min-height: 4rem;
@@ -233,9 +235,13 @@
 .cardlayout {
   display: flex;
   flex-direction: row;
+  margin-top: -2rem;
   gap: 2rem;
 }
-
+.creditimage {
+  background: seagreen;
+  background-color: seagreen;
+}
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);

@@ -55,12 +55,12 @@ export default function Header() {
           <nav className={styles.navmenu}>
             {isLoggedIn && (
               <Link href="/dashboard" className={styles.navlink}>
-                Dashboard
+                <a>Dashboard</a>
               </Link>
             )}
             {isLoggedIn && (
               <Link href="/generate" className={styles.navlink}>
-                Generate
+                <a>Generate</a>
               </Link>
             )}
             {/* {isLoggedIn && (
@@ -69,7 +69,7 @@ export default function Header() {
               </Link>
             )} */}
             <Link href="/pricing" className={styles.navlink}>
-              Pricing
+              <a>Pricing</a>
             </Link>
             {/* <Link href="/collection">Collection</Link> */}
             <div className={styles.navsubmenu}>
