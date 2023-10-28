@@ -37,7 +37,7 @@
   --card-border-rgb: 131, 134, 135;
 }
 hanko-auth::part(container) {
-  background-color: gold;
+  background-color: teal;
   width: 100%;
   height: 20rem;
   align-items: center;
@@ -51,6 +51,10 @@ hanko-auth::part(error) {
 }
 hanko-profile::part(container) {
   background-color: transparent;
+  /* margin-top: 5rem; Only working when in window form */
+}
+hanko-profile::part(headline1) {
+  /* margin-top: 5rem; Only working when in window form */
 }
 hanko-profile::part(form-item) {
   /* background-color: black; */
@@ -131,10 +135,14 @@ h1 {
   line-height: 2.5rem;
   margin-bottom: 2rem;
 }
-ul {
+/* ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+} */
+ul {
+  display: inline-block;
+  gap: 2rem;
 }
 .image {
   width: 100%;

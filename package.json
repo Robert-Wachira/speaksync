@@ -7,8 +7,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "stripe-listen-demo": "stripe listen --forward to localhost:3000/payments",
-    "stripe-listen": "stripe listen --forward-to localhost:4242/webhook"
+    "stripe:listen": "stripe listen --forward to localhost:3000/api/payments"
   },
   "dependencies": {
     "@prisma/client": "^5.5.2",
@@ -24,7 +23,7 @@
     "react-dom": "^18",
     "react-toastify": "^9.1.3",
     "replicate": "^0.20.1",
-    "stripe": "^14.1.0",
+    "stripe": "^14.2.0",
     "supabase": "^1.100.1"
   },
   "devDependencies": {
@@ -32,6 +31,7 @@
     "@types/node": "^20.8.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/stripe": "^8.0.417",
     "prisma": "^5.5.2",
     "typescript": "^5"
   }

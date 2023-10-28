@@ -2,8 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com", "cdn.pixabay.com", "images.pexel.com"],
-    // domains: ['image.unsplash.com'],
     remotePatterns: [
       {
         protocol: "https",
@@ -17,7 +15,7 @@ const nextConfig = {
   },
   experimental: {
     serverActions: true,
-    appDir: false,
+    // appDir: false,
   },
 };
 

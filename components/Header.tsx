@@ -7,20 +7,46 @@ import { LogoutBtn } from "./LogoutButton";
 import LoginPage from "@/app/login/page";
 import styles from "../src/app/page.module.css";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 // import dynamic from "next/dynamic";
 // const Hanko = dynamic(() => import("../components/HankoAuth"), { ssr: false });
 // @ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
+const hankoAPI = process.env.NEXT_PUBLIC_HANKO_API_URL;
+
 export default function Header() {
-  const session = Hanko.session;
-  const isLoggedIn = !!session;
+  const [hanko, setHanko] = useState<Hanko>();
+
+  useEffect(() => {
+    // @ts-ignore
+    import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+      setHanko(new Hanko(hankoAPI ?? ""))
+    );
+  }, []);
+
+  const sess = hanko?.session.isValid();
+  const cred = hanko?.user;
+
+  // const logout = async () => {
+  //   try {
+  //     await hanko?.user.logout();
+  //     router.push("/login");
+  //     router.refresh();
+  //     return;
+  //   } catch (error) {
+  //     console.error("Error during logout:", error);
+  //   }
+  // };
+
+  // const session = Hanko.session;
+  const isLoggedIn = !!sess;
 
   // const buyCredits = useBuyCredits();
 
-  const credits = session?.user.getCredits.useQuery(undefined, {
-    enabled: isLoggedIn,
-  });
+  // const credits = hanko?.user.getCredits.useQuery(undefined, {
+  //   enabled: isLoggedIn,
+  // });
 
   // const handleBuyCredits = async () => {
   //   try {
@@ -59,15 +85,14 @@ export default function Header() {
             <div className={styles.navsubmenu}>
               {isLoggedIn && (
                 <>
-                  <div>Credits remaining {credits.data}</div>
-                  <li>
-                    <button
-                      onClick={() => useBuyCredits}
-                      className={styles.navsubmenubuttons}
-                    >
-                      Buy Credits
-                    </button>
-                  </li>
+                  {/* <div>Credits remaining {credits.data}</div> */}
+                  <div>Credits remaining</div>
+                  <button
+                    onClick={() => useBuyCredits()}
+                    className={styles.navsubmenubuttons}
+                  >
+                    Buy Credits
+                  </button>
                   <LogoutBtn />
                 </>
               )}

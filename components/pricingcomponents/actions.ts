@@ -1,33 +1,49 @@
 "use server";
 
-import Stripe from "stripe";
+import { stripe } from "../../src/lib/stripe";
+import { getSessionValid, getUserId } from "./sessions";
 //@ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
 export async function checkoutAction(credits: number) {
-  const session = await Hanko.session;
+  // const sess = hanko?.session.isValid();
+  // const sess = getSessionValid();
+  const sess = Hanko.session;
 
-  if (!session?.user) {
-    throw new Error("You must be logged in to checkout");
-  }
+  // const uid = getUserId();
+  const uid = Hanko.user;
 
+  // const isLoggedIn = !!sess.isValid();
+  // const isLoggedIn = !!sess;
+
+  // if (!isLoggedIn) {
+  //   throw new Error("You must be logged in to checkout");
+  // }
+
+  // const session = await Hanko?.session;
+
+  // if (!session?.user) {
+  //   throw new Error("You must be logged in to checkout");
+  // }
   const priceIds: Record<number, string> = {
-    50: process.env.PRICE_ID_50,
-    100: process.env.PRICE_ID_100,
-    250: process.env.PRICE_ID_250,
+    50: process.env.PRICE_ID_50!,
+    100: process.env.PRICE_ID_100!,
+    250: process.env.PRICE_ID_250!,
   };
 
   const priceId = priceIds[credits];
+
   if (!priceId) {
     throw new Error("Invalid price id");
   }
 
-  //@ts-ignore
-  return Stripe.Checkout.sessions.create({
+  return stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
     metadata: {
-      userId: session.user.id,
+      // userId: session.user.id,
+      // userEmail: uid.email,
+      // userId: resId,
       credits: credits,
     },
     line_items: [
@@ -36,7 +52,7 @@ export async function checkoutAction(credits: number) {
         quantity: 1,
       },
     ],
-    success_url: `${process.env.PROD_HOST_NAME}/`,
-    cancel_url: `${process.env.PROD_HOST_NAME}/pricing`,
+    success_url: `${process.env.HOST_NAME}/dashboard`,
+    cancel_url: `${process.env.HOST_NAME}/pricing`,
   });
 }

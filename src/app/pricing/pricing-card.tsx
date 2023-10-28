@@ -28,7 +28,6 @@ export default function PricingCard() {
                   <p>Acquire your {credit.description}</p>
                   {/* <img src={credit.image} className={styles.creditimage} /> */}
                   <img src={credit.image} />
-
                   <button
                     onClick={() =>
                       checkoutAction(credit.credits)
