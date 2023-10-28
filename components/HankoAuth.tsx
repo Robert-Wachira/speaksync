@@ -12,9 +12,15 @@ export default function HankoAuth() {
 
   const [hanko, setHanko] = useState<Hanko>();
 
+  // useEffect(() => {
+  //   // @ts-ignore
+  //   import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+  //     setHanko(new Hanko(hankoAPI))
+  //   );
+  // }, []);
   useEffect(() => {
     // @ts-ignore
-    import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+    import("@teamhanko/hanko-frontend-sdk").then(({ Hanko }) =>
       setHanko(new Hanko(hankoAPI))
     );
   }, []);

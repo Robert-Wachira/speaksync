@@ -59,15 +59,28 @@ export default function Header() {
     <>
       <header className={styles.nav}>
         <div>
-          <Link href="/" className={styles.navhome}>
-            <Image
-              alt="logo"
-              src="/Imggen.png"
-              width={50}
-              height={30}
-              className={styles.logoimg}
-            />
-          </Link>
+          {isLoggedIn && (
+            <Link href="/dashboard" className={styles.navhome}>
+              <Image
+                alt="logo"
+                src="/Imggen.png"
+                width={50}
+                height={30}
+                className={styles.logoimg}
+              />
+            </Link>
+          )}
+          {!isLoggedIn && (
+            <Link href="/" className={styles.navhome}>
+              <Image
+                alt="logo"
+                src="/Imggen.png"
+                width={50}
+                height={30}
+                className={styles.logoimg}
+              />
+            </Link>
+          )}
           <nav className={styles.navmenu}>
             {isLoggedIn && (
               <Link href="/dashboard" className={styles.navlink}>
@@ -87,12 +100,12 @@ export default function Header() {
                 <>
                   {/* <div>Credits remaining {credits.data}</div> */}
                   <div>Credits remaining</div>
-                  <button
+                  {/* <button
                     onClick={() => useBuyCredits()}
                     className={styles.navsubmenubuttons}
                   >
                     Buy Credits
-                  </button>
+                  </button> */}
                   <LogoutBtn />
                 </>
               )}
