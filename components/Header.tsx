@@ -106,7 +106,9 @@ export default function Header() {
                   >
                     Buy Credits
                   </button> */}
-                  <LogoutBtn />
+                  <Link href="/logout" passHref legacyBehavior>
+                    <LogoutBtn />
+                  </Link>
                 </>
               )}
               {!isLoggedIn && (

@@ -101,12 +101,13 @@
   border: 1px #000;
   border-radius: 1rem;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   text-align: center;
-  margin-left: 24rem;
-  margin-top: -2rem;
-  padding: 1.25rem;
+  margin-left: 20rem;
+  margin-top: 0rem;
+  /* padding: 1.25rem; */
+  padding: 0rem;
 }
 .navlinks {
   font-weight: 500;
@@ -130,13 +131,14 @@
   border: 1px #000;
   border-radius: 1rem;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   text-align: center;
   margin-left: 6.15rem;
   /* margin-top: -3.75rem; */
   background-color: transparent;
-  padding: 1.25rem;
+  /* padding: 1.25rem; */
+  padding: 0rem;
 }
 .navsubmenubuttons {
   height: 100%;
@@ -466,7 +468,13 @@
     grid-template-columns: repeat(2, 50%);
   }
   .main {
-    margin-top: 7rem;
+    margin-top: -2rem;
+  }
+  .card {
+    width: 12rem;
+  }
+  .form {
+    width: 40rem;
   }
 }
 
