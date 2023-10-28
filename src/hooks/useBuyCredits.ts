@@ -2,7 +2,11 @@ import { loadStripe } from "@stripe/stripe-js";
 //@ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+
 // const session = Hanko.session;
 const session = Hanko.session;
 

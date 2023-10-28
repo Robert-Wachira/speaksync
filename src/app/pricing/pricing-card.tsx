@@ -6,8 +6,10 @@ import { toast } from "react-toastify";
 import styles from "../page.module.css";
 import data from "../../../components/pricingcomponents/credits.json";
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
-// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+// const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY);
 
 export default function PricingCard() {
   return (

@@ -81,7 +81,7 @@
   font-weight: 500;
   line-height: 1.6;
   box-sizing: border-box;
-  background-color: transparent;
+  /* background-color: transparent; */
   font-size: 1em;
   float: left;
   text-decoration: none;
@@ -113,12 +113,12 @@
   line-height: 1.6;
   font-size: 1.5rem;
   box-sizing: border-box;
-  background-color: transparent;
-  vertical-align: top;
+  /* background-color: transparent; */
+  /* vertical-align: top; */
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   /* align-items: center; */
   text-align: center;
   padding: 0.75rem 0;
