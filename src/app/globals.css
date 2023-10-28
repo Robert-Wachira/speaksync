@@ -53,7 +53,8 @@ hanko-profile::part(container) {
   background-color: transparent;
 }
 hanko-profile::part(form-item) {
-  background-color: black;
+  /* background-color: black; */
+  color: black;
 }
 
 @media (prefers-color-scheme: dark) {

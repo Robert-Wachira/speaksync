@@ -7,6 +7,8 @@ import { LogoutBtn } from "./LogoutButton";
 import LoginPage from "@/app/login/page";
 import styles from "../src/app/page.module.css";
 import Image from "next/image";
+// import dynamic from "next/dynamic";
+// const Hanko = dynamic(() => import("../components/HankoAuth"), { ssr: false });
 // @ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
@@ -14,7 +16,7 @@ export default function Header() {
   const session = Hanko.session;
   const isLoggedIn = !!session;
 
-  const buyCredits = useBuyCredits();
+  // const buyCredits = useBuyCredits();
 
   const credits = session?.user.getCredits.useQuery(undefined, {
     enabled: isLoggedIn,
