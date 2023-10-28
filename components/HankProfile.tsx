@@ -15,7 +15,6 @@ export default function HankoProfile() {
 
   return (
     <>
-      <Header />
       <hanko-profile />
     </>
   );

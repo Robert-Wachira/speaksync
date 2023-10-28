@@ -70,13 +70,16 @@ export default function Header() {
                 </>
               )}
               {!isLoggedIn && (
-                <button
-                  onClick={() => {
-                    LoginPage;
-                  }}
-                >
+                // <button
+                //   onClick={() => {
+                //     LoginPage;
+                //   }}
+                // >
+                //   Login
+                // </button>
+                <Link href="/login" className={styles.navlink}>
                   Login
-                </button>
+                </Link>
               )}
             </div>
           </nav>

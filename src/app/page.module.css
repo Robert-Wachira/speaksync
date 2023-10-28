@@ -141,7 +141,16 @@
 .navsubmenubuttons {
   height: 100%;
   width: 100%;
-  /* background-color: #5b21b6; */
+  font-weight: 500;
+  line-height: 1.6;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.75rem 0;
+  background-color: transparent;
 }
 .login {
   display: flex;
@@ -167,7 +176,6 @@
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   padding-top: 1rem;
-  width: 100%;
 }
 .footerdiv {
   display: flex;
