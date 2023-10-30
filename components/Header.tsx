@@ -4,12 +4,9 @@ import React from "react";
 import { useBuyCredits } from "@/hooks/useBuyCredits";
 import Link from "next/link";
 import { LogoutBtn } from "./LogoutButton";
-import LoginPage from "@/app/login/page";
 import styles from "../src/app/page.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-// import dynamic from "next/dynamic";
-// const Hanko = dynamic(() => import("../components/HankoAuth"), { ssr: false });
 // @ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
@@ -27,19 +24,6 @@ export default function Header() {
 
   const sess = hanko?.session.isValid();
   const cred = hanko?.user;
-
-  // const logout = async () => {
-  //   try {
-  //     await hanko?.user.logout();
-  //     router.push("/login");
-  //     router.refresh();
-  //     return;
-  //   } catch (error) {
-  //     console.error("Error during logout:", error);
-  //   }
-  // };
-
-  // const session = Hanko.session;
   const isLoggedIn = !!sess;
 
   // const buyCredits = useBuyCredits();
@@ -112,13 +96,6 @@ export default function Header() {
                 </>
               )}
               {!isLoggedIn && (
-                // <button
-                //   onClick={() => {
-                //     LoginPage;
-                //   }}
-                // >
-                //   Login
-                // </button>
                 <Link href="/login" className={styles.navlink}>
                   Login
                 </Link>

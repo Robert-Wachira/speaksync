@@ -48,11 +48,11 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  images        Genimage[]
+  audios        Audio[]
   credits       Int       @default(5)
 }
 
-model Genimage {
+model Audio {
   id         String @id @default(cuid())
   prompt  String?
   version   String?

@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 const HankoProfile = dynamic(() => import("../../../components/HankoProfile"), {
   ssr: false,
 });
-// import HankoProfile from "../../../components/HankoProfile";
 
 import styles from "../page.module.css";
 

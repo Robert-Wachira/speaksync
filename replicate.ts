@@ -1,3 +1,30 @@
+import Replicate from "replicate";
+
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+});
+
+const output = async () => {
+  await replicate.run(
+    "thomasmol/whisper-diarization:249170b5f45bb1e0aa68440f1f28ef25f5ee50a882af365555068f1f61ae791b",
+    {
+      input: {
+        file_string: "...",
+      },
+    }
+  );
+};
+const prediction = async () => {
+  await replicate.predictions.create({
+    version: "249170b5f45bb1e0aa68440f1f28ef25f5ee50a882af365555068f1f61ae791b",
+    input: {
+      file_string: "...",
+    },
+    webhook: "https://example.com/your-webhook",
+    webhook_events_filter: ["completed"],
+  });
+};
+
 // import Replicate from "replicate";
 
 // const replicate = new Replicate({

@@ -18,18 +18,12 @@ export default function Home() {
       <main className={styles.main}>
         <h1>DISCOVER THE FUTURE OF AI WITH US</h1>
         <p className={styles.p}>
-          With the power of AI, we bring to you a way to generate Images.
+          With the power of AI, we bring to you a way to transcribe your audios.
         </p>
         <div className={styles.plink}>
           <Link href="/login" className={styles.plink}>
             Log In To Get Started
           </Link>
-          {/* <Link href="/generate" className={styles.plink}>
-            Get Started Right Now
-          </Link> */}
-          {/* <button>
-            <Link href="/generate">Get Started right now</Link>
-          </button> */}
         </div>
       </main>
       <Footer />

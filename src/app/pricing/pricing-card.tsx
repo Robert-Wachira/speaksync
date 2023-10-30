@@ -9,7 +9,6 @@ import data from "../../../components/pricingcomponents/credits.json";
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
-// const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY);
 
 export default function PricingCard() {
   return (
@@ -26,7 +25,6 @@ export default function PricingCard() {
                 <div key={credit.id} className={styles.card}>
                   <p>{credit.credits} Credits</p>
                   <p>Acquire your {credit.description}</p>
-                  {/* <img src={credit.image} className={styles.creditimage} /> */}
                   <img src={credit.image} />
                   <button
                     onClick={() =>

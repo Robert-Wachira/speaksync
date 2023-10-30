@@ -7,14 +7,34 @@ export async function POST(req: Request, res: Response) {
     },
     body: JSON.stringify({
       version:
-        "beecf59c4aee8d81bf04f0381033dfa10dc16e845b4ae00d281e2fa377e48a9f",
+        "249170b5f45bb1e0aa68440f1f28ef25f5ee50a882af365555068f1f61ae791b",
 
       input: {
-        // prompt: req.body.prompt,
-        motion_module: "mm_sd_v14",
+        file_string: "...",
+        // file_url: "",
+        // num_speakers: "",
+        // prompt: "",
       },
     }),
   });
+
+  // export async function POST(req: Request, res: Response) {
+  //   const response = await fetch("https://api.replicate.com/v1/predictions", {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       version:
+  //         "beecf59c4aee8d81bf04f0381033dfa10dc16e845b4ae00d281e2fa377e48a9f",
+
+  //       input: {
+  //         // prompt: req.body.prompt,
+  //         motion_module: "mm_sd_v14",
+  //       },
+  //     }),
+  //   });
 
   // let jsonStartResponse = await response.json();
   // let endpointOutput = jsonStartResponse.id.get;

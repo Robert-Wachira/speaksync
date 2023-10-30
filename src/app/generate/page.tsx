@@ -51,23 +51,72 @@ export default function Generate() {
     <>
       <div className={styles.divmain}>
         <Head>
-          <title>Generate Images</title>
+          <title>Transcribe Audios</title>
         </Head>
         <Header />
         <main className={styles.main}>
-          <h1>Generate Images</h1>
+          <h1>Transcribe your audios</h1>
+          <p>
+            Just upload your video or audio and Whisper API will do the rest.
+            Also, you can translate your transcription to listed languages.
+          </p>
           <form className={styles.form} onSubmit={handleSubmit}>
+            <div>
+              Choose your video or audio{" "}
+              <span className="text-xs text-neutral-500">Max: 25MB</span>
+            </div>
             <input
-              type="text"
+              type="file"
               name="prompt"
-              placeholder="Enter a prompt to display an image"
+              onSubmit={handleSubmit}
+              accept="audio"
+              max={25 * 1024 * 1024}
             />
-            <button type="submit">Submit</button>
+            <div className="space-y-4">
+              <div>
+                Write a propmt{" "}
+                <span className="text-xs text-neutral-500">
+                  You can improve your transcription with a prompt.
+                </span>
+              </div>
+              <input name="prompt" placeholder="Next.js, Typescript..." />
+            </div>
+            <div className="space-y-4">
+              <div>
+                Choose a response type{" "}
+                <span className="text-xs text-neutral-500">
+                  You choose SRT or VTT.
+                </span>
+              </div>
+              {/* <Select
+                onValueChange={(value) => {
+                  setFileType(value as "vtt" | "srt");
+                }}
+                defaultValue="vtt"
+                name="response_format"
+              > */}
+              {/* <SelectTrigger>
+                  <SelectValue placeholder="Choose a response type." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="vtt">VTT</SelectItem>
+                  <SelectItem value="srt">SRT</SelectItem>
+                </SelectContent>
+              </Select> */}
+            </div>
+            {/* <div className="flex gap-4">
+              <button type="submit">
+                {!handling ? (
+                  "Transcribe"
+                ) : (
+                  <span className="animate-pulse">Transcribing...</span>
+                )}{" "}
+              </button>
+            </div> */}
           </form>
           {error && <div>{error}</div>}
           {prediction && (
             <div>
-              {/* <p>Testing</p> */}
               {prediction.output && (
                 <div className={styles.imageWrapper}>
                   <Image
@@ -76,7 +125,6 @@ export default function Generate() {
                     alt="output"
                     sizes="100vw"
                   />
-                  {/* <p>Testing2</p> */}
                 </div>
               )}
               <p>status: {prediction.status}</p>
