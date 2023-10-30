@@ -66,27 +66,30 @@ export default function Generate() {
               <span className="text-xs text-neutral-500">Max: 25MB</span>
             </div>
             <input
+              className={styles.forminput}
               type="file"
               name="prompt"
               onSubmit={handleSubmit}
               accept="audio"
               max={25 * 1024 * 1024}
             />
-            <div className="space-y-4">
+            <div className={styles.formdiv}>
               <div>
-                Write a propmt{" "}
-                <span className="text-xs text-neutral-500">
+                Write a prompt{" "}
+                <span className={styles.formspan}>
                   You can improve your transcription with a prompt.
                 </span>
               </div>
-              <input name="prompt" placeholder="Next.js, Typescript..." />
+              <input
+                name="prompt"
+                placeholder="Next.js, Typescript..."
+                className={styles.forminput}
+              />
             </div>
-            <div className="space-y-4">
+            <div className={styles.formdiv}>
               <div>
                 Choose a response type{" "}
-                <span className="text-xs text-neutral-500">
-                  You choose SRT or VTT.
-                </span>
+                <span className={styles.formspan}>You choose SRT or VTT.</span>
               </div>
               {/* <Select
                 onValueChange={(value) => {

@@ -56,13 +56,14 @@ export default function Header() {
           )}
           {!isLoggedIn && (
             <Link href="/" className={styles.navhome}>
-              <Image
+              {/* <Image
                 alt="logo"
                 src="/Imggen.png"
                 width={50}
                 height={30}
                 className={styles.logoimg}
-              />
+              /> */}
+              <p>SpeakSync</p>
             </Link>
           )}
           <nav className={styles.navmenu}>
