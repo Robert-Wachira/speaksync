@@ -1,4 +1,4 @@
-export async function userI(req: Request, res: Response) {
+export async function userInfo(req: Request, res: Response) {
   const response = await fetch(`${process.env.HOST_NAME}/me`, {
     method: "GET",
   })

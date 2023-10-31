@@ -2,7 +2,8 @@
 
 import { checkoutAction } from "../../../components/pricingcomponents/actions";
 import { loadStripe } from "@stripe/stripe-js";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "../page.module.css";
 import data from "../../../components/pricingcomponents/credits.json";
 
@@ -17,7 +18,7 @@ export default function PricingCard() {
         <main className={styles.main}>
           <h1>Buy your Credits</h1>
           <p className={styles.p}>
-            Use the credits as tokens to generate new images
+            Use the credits as tokens to transcribe new audios
           </p>
           <div>
             <div className={styles.cardlayout}>
@@ -43,6 +44,7 @@ export default function PricingCard() {
                               position: toast.POSITION.BOTTOM_RIGHT,
                             }
                           );
+                          <ToastContainer />;
                         })
                     }
                   >

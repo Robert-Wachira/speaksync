@@ -56,11 +56,13 @@ export default function Transcribe() {
         <Header />
         <main className={styles.main}>
           <h1>Transcribe your audios</h1>
-          <p>Just upload your audio and we will do the rest.</p>
+          <p className={styles.p1}>
+            Just upload your audio and we will do the rest.
+          </p>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <div>
+            <div className={styles.p1}>
               Choose your video or audio{" "}
-              <span className="text-xs text-neutral-500">Max: 25MB</span>
+              <span className={styles.formspan}>Max: 25MB</span>
             </div>
             <input
               className={styles.forminput}
@@ -71,60 +73,15 @@ export default function Transcribe() {
               max={25 * 1024 * 1024}
             />
             <div className={styles.formdiv}>
-              <div>
-                Write a prompt{" "}
-                <span className={styles.formspan}>
-                  You can improve your transcription with a prompt.
-                </span>
-              </div>
-              <input
-                name="prompt"
-                placeholder="Next.js, Typescript..."
-                className={styles.forminput}
-              />
+              <button type="submit">Submit</button>
             </div>
-            <div className={styles.formdiv}>
-              <div>
-                Choose a response type{" "}
-                <span className={styles.formspan}>You choose SRT or VTT.</span>
-              </div>
-              {/* <Select
-                onValueChange={(value) => {
-                  setFileType(value as "vtt" | "srt");
-                }}
-                defaultValue="vtt"
-                name="response_format"
-              > */}
-              {/* <SelectTrigger>
-                  <SelectValue placeholder="Choose a response type." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="vtt">VTT</SelectItem>
-                  <SelectItem value="srt">SRT</SelectItem>
-                </SelectContent>
-              </Select> */}
-            </div>
-            {/* <div className="flex gap-4">
-              <button type="submit">
-                {!handling ? (
-                  "Transcribe"
-                ) : (
-                  <span className="animate-pulse">Transcribing...</span>
-                )}{" "}
-              </button>
-            </div> */}
           </form>
           {error && <div>{error}</div>}
           {prediction && (
             <div>
               {prediction.output && (
                 <div className={styles.imageWrapper}>
-                  <Image
-                    fill
-                    src={prediction.output[prediction.output.length - 1]}
-                    alt="output"
-                    sizes="100vw"
-                  />
+                  <p className={prediction} />
                 </div>
               )}
               <p>status: {prediction.status}</p>

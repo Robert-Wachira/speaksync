@@ -12,11 +12,11 @@ export default function Pricing() {
     <>
       <div className={styles.divmain}>
         <Head>
-          <title>Imggen Pricing</title>
+          <title>SpeakSync Pricing</title>
           <Image src="/imggen.png" alt="logo" />
         </Head>
         <Header />
-        <main className={styles.main}>
+        <main className={styles.main3}>
           <PricingCard />
         </main>
         <Footer />

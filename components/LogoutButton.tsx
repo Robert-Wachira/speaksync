@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import styles from "../src/app/page.module.css";
 // @ts-ignore
 import type { Hanko } from "@teamhanko/hanko-elements";
 
@@ -29,5 +30,9 @@ export function LogoutBtn() {
     }
   };
 
-  return <button onClick={logout}>Logout</button>;
+  return (
+    <button onClick={logout} className={styles.logoutbtn}>
+      Logout
+    </button>
+  );
 }

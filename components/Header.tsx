@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useBuyCredits } from "@/hooks/useBuyCredits";
 import Link from "next/link";
 import { LogoutBtn } from "./LogoutButton";
 import styles from "../src/app/page.module.css";
@@ -23,22 +22,8 @@ export default function Header() {
   }, []);
 
   const sess = hanko?.session.isValid();
-  const cred = hanko?.user;
   const isLoggedIn = !!sess;
 
-  // const buyCredits = useBuyCredits();
-
-  // const credits = hanko?.user.getCredits.useQuery(undefined, {
-  //   enabled: isLoggedIn,
-  // });
-
-  // const handleBuyCredits = async () => {
-  //   try {
-  //     await buyCredits.buyCredits();
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   return (
     <>
       <header className={styles.nav}>
@@ -47,8 +32,8 @@ export default function Header() {
             <Link href="/dashboard" className={styles.navhome}>
               <Image
                 alt="logo"
-                src="/Imggen.png"
-                width={50}
+                src="/speaksync.png"
+                width={150}
                 height={30}
                 className={styles.logoimg}
               />
@@ -56,14 +41,13 @@ export default function Header() {
           )}
           {!isLoggedIn && (
             <Link href="/" className={styles.navhome}>
-              {/* <Image
+              <Image
                 alt="logo"
-                src="/Imggen.png"
-                width={50}
+                src="/speaksync.png"
+                width={150}
                 height={30}
                 className={styles.logoimg}
-              /> */}
-              <p>SpeakSync</p>
+              />
             </Link>
           )}
           <nav className={styles.navmenu}>
@@ -73,24 +57,18 @@ export default function Header() {
               </Link>
             )}
             {isLoggedIn && (
-              <Link href="/generate" className={styles.navlink}>
-                Generate
+              <Link href="/transcribe" className={styles.navlink}>
+                Transcribe
               </Link>
             )}
-            <Link href="/pricing" className={styles.navlink}>
-              Pricing
-            </Link>
+            {isLoggedIn && (
+              <Link href="/pricing" className={styles.navlink}>
+                Pricing
+              </Link>
+            )}
             <div className={styles.navsubmenu}>
               {isLoggedIn && (
                 <>
-                  {/* <div>Credits remaining {credits.data}</div> */}
-                  <div>Credits remaining</div>
-                  {/* <button
-                    onClick={() => useBuyCredits()}
-                    className={styles.navsubmenubuttons}
-                  >
-                    Buy Credits
-                  </button> */}
                   <Link href="/logout" passHref legacyBehavior>
                     <LogoutBtn />
                   </Link>

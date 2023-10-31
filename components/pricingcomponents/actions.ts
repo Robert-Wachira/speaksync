@@ -1,32 +1,16 @@
 "use server";
 
 import { stripe } from "../../src/lib/stripe";
-import { getSessionValid, getUserId } from "./sessions";
-import { userI } from "./sess";
+import { userInfo } from "./sess";
 //@ts-ignore
 import { Hanko } from "@teamhanko/hanko-elements";
 
 export async function checkoutAction(credits: number) {
-  // const sess = hanko?.session.isValid();
-  // const sess = getSessionValid();
-  const sess = Hanko.session;
+  const session = await userInfo;
 
-  // const uid = getUserId();
-  const uid = Hanko.user;
-
-  // const isLoggedIn = !!sess.isValid();
-  // const isLoggedIn = !!sess;
-
-  // if (!isLoggedIn) {
+  // if (!session) {
   //   throw new Error("You must be logged in to checkout");
   // }
-  const session = await userI;
-
-  // const session = await Hanko?.session;
-
-  if (!session) {
-    throw new Error("You must be logged in to checkout");
-  }
   const priceIds: Record<number, string> = {
     50: process.env.PRICE_ID_50!,
     100: process.env.PRICE_ID_100!,
@@ -43,10 +27,7 @@ export async function checkoutAction(credits: number) {
     mode: "payment",
     payment_method_types: ["card"],
     metadata: {
-      // userId: session.res.userId,
-      // userId: session.user.id,
-      // userEmail: uid.email,
-      // userId: resId,
+      userId: Hanko?.session.res.userId,
       credits: credits,
     },
     line_items: [
