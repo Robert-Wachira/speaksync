@@ -2,7 +2,7 @@
 
 import { checkoutAction } from "../../../components/pricingcomponents/actions";
 import { loadStripe } from "@stripe/stripe-js";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../page.module.css";
 import data from "../../../components/pricingcomponents/credits.json";
@@ -44,7 +44,6 @@ export default function PricingCard() {
                               position: toast.POSITION.BOTTOM_RIGHT,
                             }
                           );
-                          <ToastContainer />;
                         })
                     }
                   >

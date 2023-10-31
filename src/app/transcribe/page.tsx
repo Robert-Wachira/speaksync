@@ -10,7 +10,7 @@ import Footer from "../../../components/Footer";
 const sleep = (ms: any) => new Promise((r) => setTimeout(r, ms));
 
 export default function Transcribe() {
-  const [prediction, setPrediction] = useState(null);
+  const [transcription, setTranscription] = useState(null);
   const [error, setError] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,27 +23,27 @@ export default function Transcribe() {
         prompt: e.target.prompt.value,
       }),
     });
-    let prediction = await response.json();
+    let transcription = await response.json();
     if (response.status !== 201) {
-      setError(prediction.detail);
+      setError(transcription.detail);
       return;
     }
-    setPrediction(prediction);
+    setTranscription(transcription);
 
     while (
-      prediction.status !== "succeeded" &&
-      prediction.status !== "failed"
+      transcription.status !== "succeeded" &&
+      transcription.status !== "failed"
     ) {
       await sleep(1000);
-      const response = await fetch("/api/predictions/" + prediction.id);
-      prediction = await response.json();
+      const response = await fetch("/api/predictions/" + transcription.id);
+      transcription = await response.json();
       if (response.status !== 200) {
-        setError(prediction.detail);
+        setError(transcription.detail);
         return;
       }
-      console.log({ prediction });
-      console.log("prediction.output:", prediction.output);
-      setPrediction(prediction);
+      console.log({ transcription });
+      console.log("transcription.output:", transcription.output);
+      setTranscription(transcription);
     }
   };
   return (
@@ -76,14 +76,14 @@ export default function Transcribe() {
             </div>
           </form>
           {error && <div>{error}</div>}
-          {prediction && (
+          {transcription && (
             <div>
-              {prediction.output && (
+              {transcription.output && (
                 <div className={styles.imageWrapper}>
-                  <p className={prediction} />
+                  <p className={transcription} />
                 </div>
               )}
-              <p>status: {prediction.status}</p>
+              <p>status: {transcription.status}</p>
             </div>
           )}
         </main>

@@ -20,7 +20,7 @@ export async function POST(req: Request, res: Response) {
     return new Response(JSON.stringify({ detail: error.detail }));
   }
 
-  const prediction = await response.json();
-  console.log("Prediction response:", prediction);
-  return new Response(JSON.stringify({ prediction }));
+  const transcription = await response.json();
+  console.log("Transcription response:", transcription);
+  return new Response(JSON.stringify({ transcription }));
 }
