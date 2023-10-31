@@ -3,25 +3,25 @@
     "id": 1,
     "credits": 50,
     "description": "50 Credits",
-    "image": "/bronze1.png",
+    "image": "/bronze.png",
     "quantity": 1,
-    "price": 9
+    "price": 5
   },
 
   {
     "id": 2,
-    "credits": 120,
+    "credits": 100,
     "description": "100 Credits",
-    "image": "/silver1.png",
+    "image": "/silver.png",
     "quantity": 1,
-    "price": 19
+    "price": 9
   },
   {
     "id": 3,
     "credits": 250,
     "description": "250 Credits",
     "quantity": 1,
-    "image": "/gold1.png",
-    "price": 29
+    "image": "/gold.png",
+    "price": 20
   }
 ]

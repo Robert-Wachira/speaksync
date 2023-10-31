@@ -29,7 +29,7 @@ export async function checkoutAction(credits: number) {
   }
   const priceIds: Record<number, string> = {
     50: process.env.PRICE_ID_50!,
-    120: process.env.PRICE_ID_120!,
+    100: process.env.PRICE_ID_100!,
     250: process.env.PRICE_ID_250!,
   };
 

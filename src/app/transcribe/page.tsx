@@ -10,7 +10,7 @@ import Footer from "../../../components/Footer";
 
 const sleep = (ms: any) => new Promise((r) => setTimeout(r, ms));
 
-export default function Generate() {
+export default function Transcribe() {
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
   const handleSubmit = async (e) => {
@@ -56,10 +56,7 @@ export default function Generate() {
         <Header />
         <main className={styles.main}>
           <h1>Transcribe your audios</h1>
-          <p>
-            Just upload your video or audio and Whisper API will do the rest.
-            Also, you can translate your transcription to listed languages.
-          </p>
+          <p>Just upload your audio and we will do the rest.</p>
           <form className={styles.form} onSubmit={handleSubmit}>
             <div>
               Choose your video or audio{" "}

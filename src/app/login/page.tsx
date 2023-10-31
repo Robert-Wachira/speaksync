@@ -1,11 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Footer from "../../../components/Footer";
 const HankoAuth = dynamic(() => import("../../../components/HankoAuth"), {
   ssr: false,
 });
 import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import styles from "../page.module.css";
 
 export default function LoginPage() {
