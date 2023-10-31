@@ -37,7 +37,7 @@
   --card-border-rgb: 131, 134, 135;
 }
 hanko-auth::part(container) {
-  margin-top: 10rem;
+  margin-top: 8rem;
   color: #ffffff;
   background-color: transparent;
   width: 100%;
