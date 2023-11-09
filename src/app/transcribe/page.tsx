@@ -34,7 +34,7 @@ export default function Transcribe() {
       transcription.status !== "succeeded" &&
       transcription.status !== "failed"
     ) {
-      await sleep(1000);
+      await sleep(2000);
       const response = await fetch("/api/transcriptions/" + transcription.id);
       transcription = await response.json();
       if (response.status !== 200) {
